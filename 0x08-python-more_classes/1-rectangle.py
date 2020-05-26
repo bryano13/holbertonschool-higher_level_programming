@@ -1,10 +1,19 @@
 #!/usr/bin/python3
-"""File that creates a class Rectangle"""
+""" This documents declares the class rectangle """
 
 
 class Rectangle ():
-    """Creating a class Rectangle"""
+    """ This class is the rectangle definition """
     def __init__(self, width=0, height=0):
+        """
+        This creates the instance of a new rectangle.
+        Args:
+            width: axis x number of element.
+            height: axis y number of element.
+        Raises:
+            TypeError: data not a int
+            ValueError: data below zero
+        """
         self.height = height
         self.width = width
 
@@ -13,22 +22,25 @@ class Rectangle ():
         """Getter for width"""
         return self.__width
 
+    @width.setter
+    def width(self, width):
+        """Setter for width"""
+        if type(width) is not int:
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = width
+
     @property
     def height(self):
+        """Getter for height"""
         return self.__height
-    
-    @width.setter
-    def width(self, value):
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
 
     @height.setter
-    def height(self, value):
-        if type(value) is not int:
+    def height(self, height):
+        """Setter for height"""
+        if type(height) is not int:
             raise TypeError("height must be an integer")
-        if value < 0:
+        if height < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self.__height = height
