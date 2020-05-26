@@ -45,13 +45,11 @@ class Rectangle ():
         return self.__height * self.__width
 
     def perimeter(self):
-        """this method calcs the rectangle perimeter """
         if (self.__width == 0 or self.__height == 0):
             return 0
         return 2 * self.__height + 2 * self.__width
 
     def __str__(self):
-        """returns a string with the actual rectangle """
         final_message = ""
         if (self.__width == 0 or self.__height == 0):
             return final_message
