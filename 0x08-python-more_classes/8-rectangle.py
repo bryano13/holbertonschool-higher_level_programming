@@ -17,9 +17,9 @@ class Rectangle ():
             TypeError: data not a int
             ValueError: data below zero
         """
-        Rectangle.number_of_instances += 1
         self.width = width
         self.height = height
+        Rectangle.number_of_instances = Rectangle.number_of_instances + 1
 
     @property
     def width(self):
@@ -76,18 +76,18 @@ class Rectangle ():
         me = "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
         return(me)
 
-    def __del__(cls):
+    def __del__(self):
         """When an instance is deleted send a message"""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        Rectangle.number_of_instances = Rectangle.number_of_instances - 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """method to decide what rect is bigger """
-        if (not isinstance(rect_1, Rectangle)):
+        if type(rect_1) != Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
-        if (not isinstance(rect_2, Rectangle)):
+        if type(rect_2) != Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
-        if (rect_1.area() >= rect_2.area()):
+        if Rectangle.area(rect_1) >= Rectangle.area(rect_2):
             return rect_1
-        return rect_2
+        else:
+            return rect_2
