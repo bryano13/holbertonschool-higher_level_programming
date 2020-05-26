@@ -5,15 +5,7 @@
 class Rectangle ():
     """ This class is the rectangle definition """
     def __init__(self, width=0, height=0):
-        """
-        This creates the instance of a new rectangle.
-        Args:
-            width: axis x number of element.
-            height: axis y number of element.
-        Raises:
-            TypeError: data not a int
-            ValueError: data below zero
-        """
+        """Creates an instance for the class Rectangle"""
         self.width = width
         self.height = height
 
