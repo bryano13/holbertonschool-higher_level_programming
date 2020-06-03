@@ -10,4 +10,3 @@ def lookup(obj):
         list: list with all attributes and methods of the class
     """
     return dir(obj)
-    
