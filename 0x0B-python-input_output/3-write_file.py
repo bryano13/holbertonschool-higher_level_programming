@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""wirte to a file"""
+"""Module that writes text into a file"""
 
 
 def write_file(filename="", text=""):
-    """write to a file"""
-
-    with open(filename, 'w') as f:
-        char = f.write(text)
-
-    return char
+    """function that returns the len of text"""
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(text)
+    return len(text)
