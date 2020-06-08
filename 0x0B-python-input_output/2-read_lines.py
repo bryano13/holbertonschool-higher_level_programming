@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""function that reads n lines of a text file and prints it to stdout"""
+"""This module returns the number of lines of a textfile"""
 
 
 def read_lines(filename="", nb_lines=0):
-    """function that reads n lines of a text file and prints it"""
+    """funcion that return number of lines"""
 
-    lines = len(open(filename).readlines())
-    with open(filename, encoding="utf8") as f:
-        if nb_lines > 0 and nb_lines < lines:
-            for line in range(nb_lines):
-                print(f.readline(), end="")
-        else:
-            print(f.read(), end="")
+    with open(filename, encoding="utf-8") as file:
+        count = 0
+        for line in file:
+            print(line, end="")
+            count += 1
+            if count == nb_lines:
+                break
