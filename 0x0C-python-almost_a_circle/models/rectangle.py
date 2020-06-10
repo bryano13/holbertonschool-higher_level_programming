@@ -87,7 +87,11 @@ class Rectangle(Base):
     def display(self):
         """Method that displays the rectangle in hashtags #"""
 
+        for y in range(0, self.__y):
+            print()
         for i in range(0, self.__height):
+            for x in range(0, self.__x):
+                print(" ", end="")
             for j in range(0, self.__width):
                 print("#", end="")
             print()
