@@ -102,19 +102,19 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.__x, self.__y, self.__width, self.height)
 
-    def update(self, *args):
-        """Uses *args list for passing arguments"""
-        var = ["id", "width", "height", "x", "y"]
-
-        for i in range(0, len(args)):
-            setattr(self, var[i], args[i])
+    def update(self, *args, **kwargs):
+        """Assigns an argument to each attribute"""
+        ar = ["id", "width", "height", "x", "y"]
+        if args:
+            for i in range(len(args)):
+                setattr(self, ar[i], args[i])
+        if kwargs:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Rectangle"""
-
-        olddict = self.__dict__.copy()
-        newdict = {}
-        for i in olddict:
-            newkey = i.replace('_Rectangle__', "")
-            newdict[newkey] = self.__dict__[i]
-        return newdict
+        """Returns the dictionary representation of a rectange"""
+        # It has to return a new dictionary
+        dict1 = {"x": self.x, "y": self.y, "id": (
+            self.id), "height": self.height, "width": self.width}
+        return dict1
