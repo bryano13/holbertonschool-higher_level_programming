@@ -25,15 +25,11 @@ class Base():
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the json rep of a list of dictionaries
-        Args:
-            list_dictionaries ([list]): dict lis
-        Returns:
-            json: dict in json format
-        """
-        if list_dictionaries:
-            return (json.dumps(list_dictionaries))
-        return("[]")
+        """Coverts a python dictionary into a json sting"""
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        string_dict = json.dumps(list_dictionaries)
+        return string_dict
 
     @classmethod
     def save_to_file(cls, list_objs):
