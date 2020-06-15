@@ -3,7 +3,7 @@
 
 def best_score(a_dictionary):
     scores = []
-    if a_dictionary is None:
+    if len(a_dictionary) == 0:
         return None
     for key in a_dictionary:
         scores.append(a_dictionary[key])
