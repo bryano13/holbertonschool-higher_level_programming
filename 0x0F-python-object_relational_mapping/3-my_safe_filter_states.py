@@ -1,35 +1,22 @@
 #!/usr/bin/python3
-# Write a script that takes in an argument and displays all values in the
-# states table of hbtn_0e_0_usa where name matches the argument.
+"""List all the states from a database beginning by N
+ protected of SQL injection"""
 
+import MySQLdb
+from sys import argv
 
-def main():
-    """Get variables, connect to mysql and run the query """
-    from sys import argv
-    import MySQLdb
-
-    username = str(argv[1])
-    password = str(argv[2])
-    db_name = str(argv[3])
-    st_name = str(argv[4])
-
-    db = MySQLdb.connect(host="localhost",
-                         port=3306,
-                         user=username,
-                         passwd=password,
-                         db=db_name,
-                         charset="utf8")
-    con = db.cursor()
-    # If I enter the variable st_name as a TUPLE, then I get protection
-    con.execute("SELECT * FROM states WHERE name=%s ORDER BY id ASC;",
-                (st_name,))
-    rows = con.fetchall()
-    for row in rows:
+if __name__ == "__main__":
+    u = argv[1]
+    p = argv[2]
+    d = argv[3]
+    n = argv[4]
+    # connect to the database
+    db = MySQLdb.connect(host="localhost", user=u, passwd=p, db=d, port=3306)
+    # get working environment with cursor object
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id ASC", (n,))
+    # get all records of the query
+    for row in cur.fetchall():
         print(row)
-    con.close()
+    cur.close()
     db.close()
-
-
-if __name__ == '__main__':
-    """Run it if main"""
-    main()
