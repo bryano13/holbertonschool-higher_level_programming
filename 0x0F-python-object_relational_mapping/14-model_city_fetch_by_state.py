@@ -25,4 +25,3 @@ if __name__ == "__main__":
     for name1, id, name2 in record2:
         print("{}: ({})\
  {}".format(name1, id, name2))
- 
