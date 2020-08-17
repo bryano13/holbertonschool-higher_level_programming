@@ -16,7 +16,7 @@ if __name__ == "__main__":
     session = Session()
 
     obj_dict = session.query(State).order_by(State.id).filter(State.name.like(
-        '%a%'))
+        '%N%'))
     for state in obj_dict:
         print("{}: {}".format(state.id, state.name))
     session.close()

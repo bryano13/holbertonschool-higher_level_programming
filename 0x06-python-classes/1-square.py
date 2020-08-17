@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-"""This module creates a class Square"""
+"""File that creates a class Square"""
 
 
 class Square:
-    """ Class Square with a constuctor method"""
-
-    def __init__(self, size):
-        """
-        Initializes square
-        Args:
-            size: size for __size attribute
-        """
+    """Class Square with a private attribute size"""
+    def __init__(self, size=0):
+        """Initialize Square size"""
         self.__size = size

@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-"""creating"""
-
-
+"""Module with function load_from_json_file"""
 import json
 
 
 def load_from_json_file(filename):
-    """creating"""
+    """
+    This funcion loads from a json file
+    """
 
-    with open(filename, 'r') as f:
-        content = f.read()
-
-    return json.loads(content)
+    with open(filename, encoding="utf-8") as file:
+        return json.loads(file.read())

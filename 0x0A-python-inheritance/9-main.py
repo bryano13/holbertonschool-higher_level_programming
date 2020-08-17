@@ -1,8 +1,16 @@
 #!/usr/bin/python3
-Rectangle = __import__('9-rectangle').Rectangle
+import os
 
-r = Rectangle(3, 5)
+with open("mydata.txt", mode="w", encoding="utf-8") as myFile:
+    myFile.write("Some random text\nMore random text\nSome more random text")
 
-print(r)
-print(r.area())
+with open("mydata.txt", encoding="utf-8") as myFile:
+    print(myFile.read())
 
+os.rename("mydata.txt", "mydata2.txt")
+os.chdir("..")
+print("Current Directory:", os.getcwd())
+
+#print(myFile.closed)
+print(myFile.name)
+#print(myFile.mode)

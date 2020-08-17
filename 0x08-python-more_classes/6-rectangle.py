@@ -16,9 +16,9 @@ class Rectangle ():
             TypeError: data not a int
             ValueError: data below zero
         """
-        Rectangle.number_of_instances += 1
         self.width = width
         self.height = height
+        Rectangle.number_of_instances = Rectangle.number_of_instances + 1
 
     @property
     def width(self):
@@ -75,7 +75,7 @@ class Rectangle ():
         me = "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
         return(me)
 
-    def __del__(cls):
+    def __del__(self):
         """When an instance is deleted send a message"""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        Rectangle.number_of_instances = Rectangle.number_of_instances - 1

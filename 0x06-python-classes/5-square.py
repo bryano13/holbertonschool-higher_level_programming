@@ -1,57 +1,37 @@
 #!/usr/bin/python3
-"""This module creates a Class Square"""
+"""File that creates a class Square"""
 
 
 class Square:
-    """Class Square with a constuctor method"""
-
+    """Class Square"""
     def __init__(self, size=0):
-        """
-        Initializes square
-        Args:
-            size: size for __size attribute
-        """
+        """Creation of instances private attribute size"""
         self.__size = size
 
     def area(self):
-        """
-        Brings the area of square
-        Returns:
-            The area of the square
-        """
         return self.__size * self.__size
-
-    def my_print(self):
-        """
-        Prints the square with the character '#'
-        """
-        if self.__size > 0:
-            for _ in range(self.__size):
-                for _ in range(self.__size):
-                    print("#", end="")
-                print()
-        else:
-            print()
 
     @property
     def size(self):
-        """
-        getter function of size
-        Returns:
-            size of square
-        """
+        """Method to retreive size"""
         return self.__size
-
+    
     @size.setter
     def size(self, value):
-        """
-        setter function of size
-        Args:
-            value: value for __size attribute
-        """
+        """Setting a new value of size"""
         if type(value) is not int:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-
+        
         self.__size = value
+    
+    def my_print(self):
+        """Prints the area using # hashtags elements"""
+        if self.__size > 0:
+            for i in range(0, self.__size):
+                for j in range(0, self.__size):
+                    print("#", end="")
+                print()
+        else:
+            print()
