@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""
-This file gets info from an url
-"""
+"""Script that sends a request to a URL and
+displays the body of the response"""
+
 import requests
-import sys
+from sys import argv
+
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    url = argv[1]
     response = requests.get(url)
-    if (response.status_code >= 400):
-        print("Error code: {}".format(response.status_code))
+    status = response.status_code
+    if status >= 400:
+        print("Error code: {}".format(status))
     else:
         print(response.text)
