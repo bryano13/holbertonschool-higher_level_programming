@@ -14,11 +14,12 @@ if __name__ == "__main__":
         data = {"q": ""}
     url = "http://0.0.0.0:5000/search_user"
     response = requests.post(url, data)
-    dict1 = response.json()
+
     try:
+        dict1 = response.json()
         if dict1:
             print("[{}] {}".format(dict1["id"], dict1["name"]))
         else:
             print("No result")
-    except Exception:
+    except ValueError:
         print("Not a valid JSON")
