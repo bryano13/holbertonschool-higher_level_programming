@@ -1,4 +1,5 @@
 #!/usr/bin/node
+//task 2
 if (process.argv.length === 2) {
     console.log('No argument');
   } else if (process.argv.length === 3) {
